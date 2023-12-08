@@ -1,14 +1,13 @@
-package com.medquestdiagnostics.siri.referrer;
+package com.medquestdiagnostics.referrer.util;
 
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
-import com.medquestdiagnostics.referrer.Home;
-import com.medquestdiagnostics.referrer.R;
-import com.medquestdiagnostics.referrer.Settings;
-import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
+import com.medquestdiagnostics.referrer.Home;
+import com.medquestdiagnostics.referrer.R;
+import com.medquestdiagnostics.referrer.Settings;
 
 
 public class AdUtil {

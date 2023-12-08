@@ -5,8 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.medquestdiagnostics.siri.util.LogUtil;
-import com.medquestdiagnostics.siri.util.Utils;
+import com.medquestdiagnostics.referrer.util.LogUtil;
+import com.medquestdiagnostics.referrer.util.Utils;
 
 public class UniversalLink extends AppCompatActivity {
 

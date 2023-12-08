@@ -54,7 +54,7 @@ class MyFirebaseMessagingService: FirebaseMessagingService() {
         val intent = Intent(this, Home::class.java)
         intent.putExtra("FromNotification", "77")
         intent.putExtra("clickAction", clickAction)
-        intent.putExtra("launchURL", com.medquestdiagnostics.siri.Settings.NOTIFICATION_URL)
+        intent.putExtra("launchURL", com.medquestdiagnostics.referrer.Settings.NOTIFICATION_URL)
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_SINGLE_TOP
         val contentIntent = PendingIntent
                 .getActivity(this,
@@ -63,7 +63,7 @@ class MyFirebaseMessagingService: FirebaseMessagingService() {
            val channelId = "Default"
            val defaultSound  = Settings.System.DEFAULT_NOTIFICATION_URI
             val builder = NotificationCompat.Builder(this, channelId)
-                    .setSmallIcon(com.medquestdiagnostics.siri.R.drawable.ic_notification_icon)
+                    .setSmallIcon(com.medquestdiagnostics.referrer.R.drawable.ic_notification_icon)
                 .setContentTitle(nottitle)
                     .setAutoCancel(true)
                     .setContentText(message)

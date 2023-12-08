@@ -1,4 +1,4 @@
-package com.medquestdiagnostics.siri.referrer;
+package com.medquestdiagnostics.referrer.util;
 
 import android.view.Menu;
 import android.view.MenuItem;
@@ -8,10 +8,10 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.medquestdiagnostics.referrer.Home;
 import com.medquestdiagnostics.referrer.R;
 import com.medquestdiagnostics.referrer.Settings;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class BottomMenuUtil {
 

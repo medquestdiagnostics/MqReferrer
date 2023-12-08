@@ -1,4 +1,4 @@
-package com.medquestdiagnostics.siri.referrer;
+package com.medquestdiagnostics.referrer;
 
 public class AppConstants {
 

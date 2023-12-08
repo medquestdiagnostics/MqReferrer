@@ -61,7 +61,6 @@ import com.google.android.gms.auth.api.phone.SmsRetrieverClient;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.medquestdiagnostics.referrer.util.AdUtil;
-import com.medquestdiagnostics.referrer.util.BottomMenuUtil;
 import com.medquestdiagnostics.referrer.util.DrawerUtil;
 import com.medquestdiagnostics.referrer.util.FilePicker;
 import com.medquestdiagnostics.referrer.util.GifUtil;
@@ -303,7 +302,7 @@ public class Home extends AppCompatActivity {
             drawerUtil.setupDrawer();
         }
         if (Settings.SHOW_BOTTOM_MENU) {
-            BottomMenuUtil.setBottomMenu(this);
+            com.medquestdiagnostics.referrer.util.BottomMenuUtil.setBottomMenu(this);
         }
 
         if (Settings.SHOW_GIF_ANIMATION) {

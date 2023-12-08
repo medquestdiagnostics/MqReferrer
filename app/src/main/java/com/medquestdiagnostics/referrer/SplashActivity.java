@@ -19,8 +19,7 @@ import java.util.List;
 import static android.Manifest.permission.READ_MEDIA_IMAGES;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
-import com.medquestdiagnostics.siri.util.GpsUtils;
-import com.medquestdiagnostics.siri.util.Utils;
+import com.medquestdiagnostics.referrer.util.Utils;
 
 public class SplashActivity extends Activity {
     public int REQUEST_ID_MULTIPLE_PERMISSIONS = 101;
