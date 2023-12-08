@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1014120306803",
+    "project_id": "medquest-siri",
+    "storage_bucket": "medquest-siri.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1014120306803:android:6ced5736e94c0ee9be3206",
+        "android_client_info": {
+          "package_name": "com.medquestdiagnostics.siri"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZ5jGNJup-Y_Rhq_RvdBuw3_HIjcqVgpY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
