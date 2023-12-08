@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.medquestdiagnostics.siri">
+    package="com.medquestdiagnostics.referrer">
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -66,7 +66,7 @@
         </activity>
 
         <activity
-            android:name="com.medquestdiagnostics.siri.UniversalLink"
+            android:name="com.medquestdiagnostics.referrer.UniversalLink"
             android:theme="@style/AppTheme.NoActionBar"
             android:exported="true"
             android:configChanges="orientation|screenSize|keyboardHidden">
