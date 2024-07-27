@@ -79,8 +79,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics'
 
     implementation "me.leolin:ShortcutBadger:1.1.22@aar"
-    implementation 'androidx.biometric:biometric:1.1.0'
-    implementation 'com.google.android.gms:play-services-location:16.0.0'
+//    implementation 'androidx.biometric:biometric:1.1.0'
+//    implementation 'com.google.android.gms:play-services-location:16.0.0'
 
     // lib for SMS verification (Phone Auth)
     implementation 'com.google.android.gms:play-services-auth:20.7.0'

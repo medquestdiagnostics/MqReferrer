@@ -48,7 +48,7 @@ public class FilePicker {
 
 //                Home.mPhotoCapturedURI = FileProvider.getUriForFile(
 //                        activity,
-//                        "com.medquestdiagnostics.siri.fileprovider",
+//                        "com.medquestdiagnostics.referrer.fileprovider",
 //                        file
 //                );
 

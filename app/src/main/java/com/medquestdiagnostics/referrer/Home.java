@@ -3,8 +3,6 @@ package com.medquestdiagnostics.referrer;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.biometric.BiometricManager;
-import androidx.biometric.BiometricPrompt;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
@@ -64,7 +62,6 @@ import com.medquestdiagnostics.referrer.util.AdUtil;
 import com.medquestdiagnostics.referrer.util.DrawerUtil;
 import com.medquestdiagnostics.referrer.util.FilePicker;
 import com.medquestdiagnostics.referrer.util.GifUtil;
-import com.medquestdiagnostics.referrer.util.GpsUtils;
 import com.medquestdiagnostics.referrer.util.InAppBilling;
 import com.medquestdiagnostics.referrer.util.InjectUtil;
 import com.medquestdiagnostics.referrer.util.IntentUtil;
@@ -234,12 +231,12 @@ public class Home extends AppCompatActivity {
         requestLocPermission();
       //  GetNumber();
 
-        new GpsUtils(this).turnGPSOn(new GpsUtils.onGpsListener() {
-            @Override
-            public void gpsStatus(boolean isGPSEnable) {
-                // turn on GPS
-            }
-        });
+//        new GpsUtils(this).turnGPSOn(new GpsUtils.onGpsListener() {
+//            @Override
+//            public void gpsStatus(boolean isGPSEnable) {
+//                // turn on GPS
+//            }
+//        });
     }
 
     @Override
@@ -1293,7 +1290,7 @@ public class Home extends AppCompatActivity {
                                 if(value.equalsIgnoreCase("null")) {
 
                                 } else if(value.equalsIgnoreCase("none")) {
-                                    checkAndLaunchBioMetric();
+//                                    checkAndLaunchBioMetric();
                                 }
                             }
                         }
@@ -1589,80 +1586,80 @@ public class Home extends AppCompatActivity {
         AdUtil.loadBannerAd(Home.this, adParent);
     }
 
-    private void checkAndLaunchBioMetric() {
-        LogUtil.loge("@@@ checkAndLaunchBioMetric....");
-
-        try {
-            boolean IsBiometricAvailable = false;
-
-            // creating a variable for our BiometricManager
-            // and lets check if our user can use biometric sensor or not
-            BiometricManager biometricManager = androidx.biometric.BiometricManager.from(this);
-            switch (biometricManager.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_STRONG  | BiometricManager.Authenticators.BIOMETRIC_WEAK | BiometricManager.Authenticators.DEVICE_CREDENTIAL)) {
-
-                // this means we can use biometric sensor
-                case BiometricManager.BIOMETRIC_SUCCESS:
-                    IsBiometricAvailable = true;
-                    break;
-
-                // this means that the device doesn't have fingerprint sensor
-                case BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE:
-                    break;
-
-                // this means that biometric sensor is not available
-                case BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE:
-                    break;
-
-                // this means that the device doesn't contain your fingerprint
-                case BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED:
-                    break;
-            }
-
-            // creating a variable for our Executor
-            Executor executor = ContextCompat.getMainExecutor(this);
-            // this will give us result of AUTHENTICATION
-            final BiometricPrompt biometricPrompt = new BiometricPrompt(Home.this, executor, new BiometricPrompt.AuthenticationCallback() {
-                @Override
-                public void onAuthenticationError(int errorCode, @NonNull CharSequence errString) {
-                    super.onAuthenticationError(errorCode, errString);
-                }
-
-                // THIS METHOD IS CALLED WHEN AUTHENTICATION IS SUCCESS
-                @Override
-                public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
-                    super.onAuthenticationSucceeded(result);
-
-                    String userName = PrefsUtil.getUserName(Home.this);
-                    String password = PrefsUtil.getPassword(Home.this);
-
-                    LogUtil.loge("@@@ onAuthenticationSucceeded..." + userName + "..." + password);
-
-                    webView.loadUrl("javascript:(function(){document.getElementsByName('user_name')[0].value='"+ userName +"';document.getElementsByName('user_password')[0].value='"+ PrefsUtil.getPassword(Home.this) +"';})()");
-                    webView.loadUrl("javascript:(function(){document.getElementById('siri_login').click();})()");
-                }
-
-                @Override
-                public void onAuthenticationFailed() {
-                    super.onAuthenticationFailed();
-                }
-            });
-
-            // creating a variable for our promptInfo
-            // BIOMETRIC DIALOG
-            final BiometricPrompt.PromptInfo promptInfo = new BiometricPrompt.PromptInfo.Builder()
-                    .setTitle(Home.this.getApplicationContext().getString(R.string.app_name))
-                    .setDescription("Use your fingerprint to login")
-                    .setAllowedAuthenticators(BiometricManager.Authenticators.BIOMETRIC_STRONG | BiometricManager.Authenticators.BIOMETRIC_WEAK | BiometricManager.Authenticators.DEVICE_CREDENTIAL)
-                    .build();
-
-            if(IsBiometricAvailable) {
-                biometricPrompt.authenticate(promptInfo);
-            }
-
-        } catch (Exception e){
-            e.printStackTrace();
-        }
-    }
+//    private void checkAndLaunchBioMetric() {
+//        LogUtil.loge("@@@ checkAndLaunchBioMetric....");
+//
+//        try {
+//            boolean IsBiometricAvailable = false;
+//
+//            // creating a variable for our BiometricManager
+//            // and lets check if our user can use biometric sensor or not
+//            BiometricManager biometricManager = androidx.biometric.BiometricManager.from(this);
+//            switch (biometricManager.canAuthenticate(BiometricManager.Authenticators.BIOMETRIC_STRONG  | BiometricManager.Authenticators.BIOMETRIC_WEAK | BiometricManager.Authenticators.DEVICE_CREDENTIAL)) {
+//
+//                // this means we can use biometric sensor
+//                case BiometricManager.BIOMETRIC_SUCCESS:
+//                    IsBiometricAvailable = true;
+//                    break;
+//
+//                // this means that the device doesn't have fingerprint sensor
+//                case BiometricManager.BIOMETRIC_ERROR_NO_HARDWARE:
+//                    break;
+//
+//                // this means that biometric sensor is not available
+//                case BiometricManager.BIOMETRIC_ERROR_HW_UNAVAILABLE:
+//                    break;
+//
+//                // this means that the device doesn't contain your fingerprint
+//                case BiometricManager.BIOMETRIC_ERROR_NONE_ENROLLED:
+//                    break;
+//            }
+//
+//            // creating a variable for our Executor
+//            Executor executor = ContextCompat.getMainExecutor(this);
+//            // this will give us result of AUTHENTICATION
+//            final BiometricPrompt biometricPrompt = new BiometricPrompt(Home.this, executor, new BiometricPrompt.AuthenticationCallback() {
+//                @Override
+//                public void onAuthenticationError(int errorCode, @NonNull CharSequence errString) {
+//                    super.onAuthenticationError(errorCode, errString);
+//                }
+//
+//                // THIS METHOD IS CALLED WHEN AUTHENTICATION IS SUCCESS
+//                @Override
+//                public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
+//                    super.onAuthenticationSucceeded(result);
+//
+//                    String userName = PrefsUtil.getUserName(Home.this);
+//                    String password = PrefsUtil.getPassword(Home.this);
+//
+//                    LogUtil.loge("@@@ onAuthenticationSucceeded..." + userName + "..." + password);
+//
+//                    webView.loadUrl("javascript:(function(){document.getElementsByName('user_name')[0].value='"+ userName +"';document.getElementsByName('user_password')[0].value='"+ PrefsUtil.getPassword(Home.this) +"';})()");
+//                    webView.loadUrl("javascript:(function(){document.getElementById('siri_login').click();})()");
+//                }
+//
+//                @Override
+//                public void onAuthenticationFailed() {
+//                    super.onAuthenticationFailed();
+//                }
+//            });
+//
+//            // creating a variable for our promptInfo
+//            // BIOMETRIC DIALOG
+//            final BiometricPrompt.PromptInfo promptInfo = new BiometricPrompt.PromptInfo.Builder()
+//                    .setTitle(Home.this.getApplicationContext().getString(R.string.app_name))
+//                    .setDescription("Use your fingerprint to login")
+//                    .setAllowedAuthenticators(BiometricManager.Authenticators.BIOMETRIC_STRONG | BiometricManager.Authenticators.BIOMETRIC_WEAK | BiometricManager.Authenticators.DEVICE_CREDENTIAL)
+//                    .build();
+//
+//            if(IsBiometricAvailable) {
+//                biometricPrompt.authenticate(promptInfo);
+//            }
+//
+//        } catch (Exception e){
+//            e.printStackTrace();
+//        }
+//    }
 
     private void startSMSRetrieverClient() {
 
